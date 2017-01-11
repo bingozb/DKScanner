@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D74509B91E26A5DA001D1198 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509B81E26A5DA001D1198 /* main.m */; };
+		D74509BC1E26A5DA001D1198 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509BB1E26A5DA001D1198 /* AppDelegate.m */; };
+		D74509BF1E26A5DA001D1198 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509BE1E26A5DA001D1198 /* ViewController.m */; };
+		D74509C21E26A5DA001D1198 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74509C01E26A5DA001D1198 /* Main.storyboard */; };
+		D74509C41E26A5DA001D1198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74509C31E26A5DA001D1198 /* Assets.xcassets */; };
+		D74509C71E26A5DA001D1198 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74509C51E26A5DA001D1198 /* LaunchScreen.storyboard */; };
+		D74509D21E26A5DA001D1198 /* DKScannerExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509D11E26A5DA001D1198 /* DKScannerExampleTests.m */; };
+		D74509EC1E26A64E001D1198 /* DKScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509E11E26A64E001D1198 /* DKScanner.m */; };
+		D74509ED1E26A64E001D1198 /* DKScannerBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509E31E26A64E001D1198 /* DKScannerBorder.m */; };
+		D74509EE1E26A64E001D1198 /* DKScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509E51E26A64E001D1198 /* DKScannerController.m */; };
+		D74509EF1E26A64E001D1198 /* DKScannerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509E71E26A64E001D1198 /* DKScannerMaskView.m */; };
+		D74509F01E26A64E001D1198 /* DKScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509E91E26A64E001D1198 /* DKScannerViewController.m */; };
+		D74509F21E26AE0B001D1198 /* DKScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D74509F11E26AE0B001D1198 /* DKScanner.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D74509CE1E26A5DA001D1198 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D74509AC1E26A5D9001D1198 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D74509B31E26A5DA001D1198;
+			remoteInfo = DKScannerExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D74509B41E26A5DA001D1198 /* DKScannerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DKScannerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D74509B81E26A5DA001D1198 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D74509BA1E26A5DA001D1198 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D74509BB1E26A5DA001D1198 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D74509BD1E26A5DA001D1198 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D74509BE1E26A5DA001D1198 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D74509C11E26A5DA001D1198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D74509C31E26A5DA001D1198 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D74509C61E26A5DA001D1198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D74509C81E26A5DA001D1198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D74509CD1E26A5DA001D1198 /* DKScannerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DKScannerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D74509D11E26A5DA001D1198 /* DKScannerExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKScannerExampleTests.m; sourceTree = "<group>"; };
+		D74509D31E26A5DA001D1198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D74509E01E26A64E001D1198 /* DKScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKScanner.h; sourceTree = "<group>"; };
+		D74509E11E26A64E001D1198 /* DKScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKScanner.m; sourceTree = "<group>"; };
+		D74509E21E26A64E001D1198 /* DKScannerBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKScannerBorder.h; sourceTree = "<group>"; };
+		D74509E31E26A64E001D1198 /* DKScannerBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKScannerBorder.m; sourceTree = "<group>"; };
+		D74509E41E26A64E001D1198 /* DKScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKScannerController.h; sourceTree = "<group>"; };
+		D74509E51E26A64E001D1198 /* DKScannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKScannerController.m; sourceTree = "<group>"; };
+		D74509E61E26A64E001D1198 /* DKScannerMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKScannerMaskView.h; sourceTree = "<group>"; };
+		D74509E71E26A64E001D1198 /* DKScannerMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKScannerMaskView.m; sourceTree = "<group>"; };
+		D74509E81E26A64E001D1198 /* DKScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKScannerViewController.h; sourceTree = "<group>"; };
+		D74509E91E26A64E001D1198 /* DKScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKScannerViewController.m; sourceTree = "<group>"; };
+		D74509F11E26AE0B001D1198 /* DKScanner.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DKScanner.bundle; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D74509B11E26A5DA001D1198 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D74509CA1E26A5DA001D1198 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D74509AB1E26A5D9001D1198 = {
+			isa = PBXGroup;
+			children = (
+				D74509B61E26A5DA001D1198 /* DKScannerExample */,
+				D74509D01E26A5DA001D1198 /* DKScannerExampleTests */,
+				D74509B51E26A5DA001D1198 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D74509B51E26A5DA001D1198 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D74509B41E26A5DA001D1198 /* DKScannerExample.app */,
+				D74509CD1E26A5DA001D1198 /* DKScannerExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D74509B61E26A5DA001D1198 /* DKScannerExample */ = {
+			isa = PBXGroup;
+			children = (
+				D74509DC1E26A64E001D1198 /* DKScanner */,
+				D74509BA1E26A5DA001D1198 /* AppDelegate.h */,
+				D74509BB1E26A5DA001D1198 /* AppDelegate.m */,
+				D74509BD1E26A5DA001D1198 /* ViewController.h */,
+				D74509BE1E26A5DA001D1198 /* ViewController.m */,
+				D74509B71E26A5DA001D1198 /* Supporting Files */,
+			);
+			path = DKScannerExample;
+			sourceTree = "<group>";
+		};
+		D74509B71E26A5DA001D1198 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D74509C01E26A5DA001D1198 /* Main.storyboard */,
+				D74509C31E26A5DA001D1198 /* Assets.xcassets */,
+				D74509C51E26A5DA001D1198 /* LaunchScreen.storyboard */,
+				D74509C81E26A5DA001D1198 /* Info.plist */,
+				D74509B81E26A5DA001D1198 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D74509D01E26A5DA001D1198 /* DKScannerExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				D74509D11E26A5DA001D1198 /* DKScannerExampleTests.m */,
+				D74509D31E26A5DA001D1198 /* Info.plist */,
+			);
+			path = DKScannerExampleTests;
+			sourceTree = "<group>";
+		};
+		D74509DC1E26A64E001D1198 /* DKScanner */ = {
+			isa = PBXGroup;
+			children = (
+				D74509F11E26AE0B001D1198 /* DKScanner.bundle */,
+				D74509E01E26A64E001D1198 /* DKScanner.h */,
+				D74509E11E26A64E001D1198 /* DKScanner.m */,
+				D74509E21E26A64E001D1198 /* DKScannerBorder.h */,
+				D74509E31E26A64E001D1198 /* DKScannerBorder.m */,
+				D74509E41E26A64E001D1198 /* DKScannerController.h */,
+				D74509E51E26A64E001D1198 /* DKScannerController.m */,
+				D74509E61E26A64E001D1198 /* DKScannerMaskView.h */,
+				D74509E71E26A64E001D1198 /* DKScannerMaskView.m */,
+				D74509E81E26A64E001D1198 /* DKScannerViewController.h */,
+				D74509E91E26A64E001D1198 /* DKScannerViewController.m */,
+			);
+			path = DKScanner;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D74509B31E26A5DA001D1198 /* DKScannerExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D74509D61E26A5DA001D1198 /* Build configuration list for PBXNativeTarget "DKScannerExample" */;
+			buildPhases = (
+				D74509B01E26A5DA001D1198 /* Sources */,
+				D74509B11E26A5DA001D1198 /* Frameworks */,
+				D74509B21E26A5DA001D1198 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DKScannerExample;
+			productName = DKScannerExample;
+			productReference = D74509B41E26A5DA001D1198 /* DKScannerExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D74509CC1E26A5DA001D1198 /* DKScannerExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D74509D91E26A5DA001D1198 /* Build configuration list for PBXNativeTarget "DKScannerExampleTests" */;
+			buildPhases = (
+				D74509C91E26A5DA001D1198 /* Sources */,
+				D74509CA1E26A5DA001D1198 /* Frameworks */,
+				D74509CB1E26A5DA001D1198 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D74509CF1E26A5DA001D1198 /* PBXTargetDependency */,
+			);
+			name = DKScannerExampleTests;
+			productName = DKScannerExampleTests;
+			productReference = D74509CD1E26A5DA001D1198 /* DKScannerExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D74509AC1E26A5D9001D1198 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = cn.dankal;
+				TargetAttributes = {
+					D74509B31E26A5DA001D1198 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = G8M2K7562P;
+						ProvisioningStyle = Automatic;
+					};
+					D74509CC1E26A5DA001D1198 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = G8M2K7562P;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D74509B31E26A5DA001D1198;
+					};
+				};
+			};
+			buildConfigurationList = D74509AF1E26A5D9001D1198 /* Build configuration list for PBXProject "DKScannerExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D74509AB1E26A5D9001D1198;
+			productRefGroup = D74509B51E26A5DA001D1198 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D74509B31E26A5DA001D1198 /* DKScannerExample */,
+				D74509CC1E26A5DA001D1198 /* DKScannerExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D74509B21E26A5DA001D1198 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D74509C71E26A5DA001D1198 /* LaunchScreen.storyboard in Resources */,
+				D74509F21E26AE0B001D1198 /* DKScanner.bundle in Resources */,
+				D74509C41E26A5DA001D1198 /* Assets.xcassets in Resources */,
+				D74509C21E26A5DA001D1198 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D74509CB1E26A5DA001D1198 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D74509B01E26A5DA001D1198 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D74509BF1E26A5DA001D1198 /* ViewController.m in Sources */,
+				D74509EC1E26A64E001D1198 /* DKScanner.m in Sources */,
+				D74509F01E26A64E001D1198 /* DKScannerViewController.m in Sources */,
+				D74509BC1E26A5DA001D1198 /* AppDelegate.m in Sources */,
+				D74509EF1E26A64E001D1198 /* DKScannerMaskView.m in Sources */,
+				D74509B91E26A5DA001D1198 /* main.m in Sources */,
+				D74509EE1E26A64E001D1198 /* DKScannerController.m in Sources */,
+				D74509ED1E26A64E001D1198 /* DKScannerBorder.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D74509C91E26A5DA001D1198 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D74509D21E26A5DA001D1198 /* DKScannerExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D74509CF1E26A5DA001D1198 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D74509B31E26A5DA001D1198 /* DKScannerExample */;
+			targetProxy = D74509CE1E26A5DA001D1198 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D74509C01E26A5DA001D1198 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D74509C11E26A5DA001D1198 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D74509C51E26A5DA001D1198 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D74509C61E26A5DA001D1198 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D74509D41E26A5DA001D1198 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D74509D51E26A5DA001D1198 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D74509D71E26A5DA001D1198 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G8M2K7562P;
+				INFOPLIST_FILE = DKScannerExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.dankal.DKScannerExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D74509D81E26A5DA001D1198 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G8M2K7562P;
+				INFOPLIST_FILE = DKScannerExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.dankal.DKScannerExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D74509DA1E26A5DA001D1198 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = G8M2K7562P;
+				INFOPLIST_FILE = DKScannerExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.dankal.DKScannerExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DKScannerExample.app/DKScannerExample";
+			};
+			name = Debug;
+		};
+		D74509DB1E26A5DA001D1198 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = G8M2K7562P;
+				INFOPLIST_FILE = DKScannerExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.dankal.DKScannerExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DKScannerExample.app/DKScannerExample";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D74509AF1E26A5D9001D1198 /* Build configuration list for PBXProject "DKScannerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D74509D41E26A5DA001D1198 /* Debug */,
+				D74509D51E26A5DA001D1198 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D74509D61E26A5DA001D1198 /* Build configuration list for PBXNativeTarget "DKScannerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D74509D71E26A5DA001D1198 /* Debug */,
+				D74509D81E26A5DA001D1198 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D74509D91E26A5DA001D1198 /* Build configuration list for PBXNativeTarget "DKScannerExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D74509DA1E26A5DA001D1198 /* Debug */,
+				D74509DB1E26A5DA001D1198 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D74509AC1E26A5D9001D1198 /* Project object */;
+}
