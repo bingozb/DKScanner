@@ -8,6 +8,6 @@ Pod::Spec.new do |s|
     s.author             = { "bingozb" => "454113692@qq.com" }
     s.source       = { :git => "https://github.com/bingozb/DKScanner.git", :tag => "v1.0.0" }
     s.source_files  = "DKScanner/*.{h,m}"
-    s.resources          = "DKProgressHUD/DKScanner.bundle"
+    s.resources          = "DKScanner/DKScanner.bundle"
     s.requires_arc = true
 end
