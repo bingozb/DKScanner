@@ -295,15 +295,15 @@
         // 判断扫描范围
         if (!CGRectContainsRect(self.scanFrame, dataObject.bounds)) continue;
         
-        if (currentDetectedCount++ < kMaxDetectedCount) {
+//        if (currentDetectedCount++ < kMaxDetectedCount) {
             // 绘制边角
-            [self drawCornersShape:dataObject];
-        } else {
+//            [self drawCornersShape:dataObject];
+//        } else {
             [self stopScan];
             // 完成回调
             if (self.completionCallBack) {
                 self.completionCallBack(dataObject.stringValue);
-            }
+//            }
         }
     }
 }
