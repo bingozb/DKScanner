@@ -40,7 +40,16 @@
  @param completion 完成回调
  @return 扫描导航控制器
  */
-+ (instancetype)scannerWithCompletion:(void (^)(NSString *stringValue))completion;
++ (instancetype)scannerWithCompletion:(void (^)(NSString *result, NSError *error))completion;
+
+/**
+ 实例化扫描导航控制器
+
+ @param autoShowErrorAlert 是否自动弹出对话框提示错误信息
+ @param completion 完成回调
+ @return 扫描导航控制器
+ */
++ (instancetype)scannerWithAutoShowErrorAlert:(BOOL)autoShowErrorAlert completion:(void (^)(NSString *result, NSError *error))completion;
 
 /**
  设置导航栏标题颜色和主题色

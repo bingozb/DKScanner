@@ -16,17 +16,25 @@
 
 @implementation DKScannerController
 
-+ (instancetype)scannerWithCompletion:(void (^)(NSString *))completion
++ (instancetype)scannerWithCompletion:(void (^)(NSString *, NSError *))completion
 {
     NSAssert(completion, @"必须传入完成回调");
     
-    return [[self alloc] initWithCompletion:completion];
+    return [[self alloc] initWithAutoShowErrorAlert:NO completion:completion];
 }
 
-- (instancetype)initWithCompletion:(void (^)(NSString *))completion
++ (instancetype)scannerWithAutoShowErrorAlert:(BOOL)autoShowErrorAlert completion:(void (^)(NSString *, NSError *))completion
+{
+    NSAssert(completion, @"必须传入完成回调");
+    
+    return [[self alloc] initWithAutoShowErrorAlert:autoShowErrorAlert completion:completion];
+}
+
+- (instancetype)initWithAutoShowErrorAlert:(BOOL)autoShowErrorAlert completion:(void (^)(NSString *, NSError *))completion
 {
     if (self = [super init]) {
         DKScannerViewController *scannerVc = [[DKScannerViewController alloc] initWithCompletion:completion];
+        scannerVc.autoShowErrorAlert = autoShowErrorAlert;
         self.scannerVc = scannerVc;
         [self setTitle:@"扫一扫" titleColor:[UIColor whiteColor] tintColor:[UIColor redColor]]; // 默认设置
         [self pushViewController:scannerVc animated:NO];

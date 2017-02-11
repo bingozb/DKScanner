@@ -460,6 +460,7 @@
 				D74509D81E26A5DA001D1198 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D74509D91E26A5DA001D1198 /* Build configuration list for PBXNativeTarget "DKScannerExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +469,7 @@
 				D74509DB1E26A5DA001D1198 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

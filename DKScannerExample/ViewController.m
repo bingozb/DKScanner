@@ -22,13 +22,12 @@
 
 - (IBAction)scan:(UIButton *)sender
 {
-    DKScannerController *scannerVc = [DKScannerController scannerWithCompletion:^(NSString *stringValue) {
-        NSLog(@"扫描结果: %@", stringValue);
-        [sender setTitle:stringValue forState:UIControlStateNormal];
+    DKScannerController *scannerVc = [DKScannerController scannerWithAutoShowErrorAlert:YES completion:^(NSString *result, NSError *error) {
+        NSLog(@"扫描结果: %@", result);
+        [sender setTitle:result forState:UIControlStateNormal];
     }];
     [scannerVc setTitle:@"扫描二维码" titleColor:[UIColor whiteColor] tintColor:[UIColor redColor]];
     [self presentViewController:scannerVc animated:YES completion:nil];
-
 }
 
 @end

@@ -15,7 +15,7 @@
 
 @interface DKScannerViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 /** 完成回调 */
-@property (nonatomic, copy) void (^completionCallBack)(NSString *);
+@property (nonatomic, copy) DKScannerCompletionCallBack completionCallBack;
 @end
 
 @implementation DKScannerViewController
@@ -27,7 +27,7 @@
 
 #pragma mark - Life Cycle
 
-- (instancetype)initWithCompletion:(void (^)(NSString *))completion
+- (instancetype)initWithCompletion:(DKScannerCompletionCallBack)completion
 {
     if (self = [super init]) {
         self.completionCallBack = completion;
@@ -64,11 +64,18 @@
 - (void)setupScanner
 {
     __weak typeof(self) weakSelf = self;
-    scanner = [DKScanner scanerWithView:self.view scanFrame:scannerBorder.frame completion:^(NSString *stringValue) {
+    scanner = [DKScanner scanerWithView:self.view scanFrame:scannerBorder.frame completion:^(NSString *result, NSError *error) {
         // 完成回调
-        weakSelf.completionCallBack(stringValue);
-        // 关闭
-        [weakSelf closeBtnClick];
+        weakSelf.completionCallBack(result, error);
+        
+        if (error) { // 有错误就提示
+            if (weakSelf.isAutoShowErrorAlert) { // 判断是否自动弹出对话框
+            [weakSelf alertWithOKButtonWithTitle:@"拒绝访问" message:@"请在系统设置 - 隐私 - 相机 中，允许【顺丰大当家】访问相机"];
+            }
+        } else {
+            // 关闭
+            [weakSelf closeBtnClick];
+        }
     }];
 }
 
@@ -135,6 +142,16 @@
     return [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
 
+- (void)alertWithOKButtonWithTitle:(NSString *)title message:(NSString *)message
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self closeBtnClick];
+    }];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 #pragma mark - Events
 
 - (void)closeBtnClick
@@ -164,7 +181,7 @@
     [DKScanner scanWithImage:info[UIImagePickerControllerOriginalImage] completion:^(NSArray *values) {
         if (values.count) {
             [self dismissViewControllerAnimated:YES completion:^{
-                self.completionCallBack(values.firstObject);
+                self.completionCallBack(values.firstObject, nil);
             }];
         } else {
             tipLabel.text = @"没有识别到二维码/条形码，请选择其他照片";

@@ -11,6 +11,7 @@
 
 /** 最大检测次数 */
 #define kMaxDetectedCount 20
+#define DKDomian @"cn.dankal.scanner"
 
 @interface DKScanner() <AVCaptureMetadataOutputObjectsDelegate>
 /** 父视图弱引用 */
@@ -18,7 +19,7 @@
 /** 扫描范围 */
 @property (nonatomic) CGRect scanFrame;
 /** 完成回调 */
-@property (nonatomic, copy) void (^completionCallBack)(NSString *);
+@property (nonatomic, copy) DKScannerBlock completionCallBack;
 @end
 
 @implementation DKScanner {
@@ -59,13 +60,15 @@
 
 #pragma mark - Life Cycle
 
-+ (instancetype)scanerWithView:(UIView *)view scanFrame:(CGRect)scanFrame completion:(void (^)(NSString *))completion {
++ (instancetype)scanerWithView:(UIView *)view scanFrame:(CGRect)scanFrame completion:(DKScannerBlock)completion
+{
     NSAssert(completion != nil, @"必须传入完成回调");
     
     return [[self alloc] initWithView:view scanFrame:scanFrame completion:completion];
 }
 
-- (instancetype)initWithView:(UIView *)view scanFrame:(CGRect)scanFrame completion:(void (^)(NSString *))completion {
+- (instancetype)initWithView:(UIView *)view scanFrame:(CGRect)scanFrame completion:(DKScannerBlock)completion
+{
     self = [super init];
     
     if (self) {
@@ -87,8 +90,10 @@
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
     
+    NSError *error = [NSError errorWithDomain:DKDomian code:0 userInfo:@{@"message":@"无权限打开摄像头"}];
     if (videoInput == nil) {
         NSLog(@"创建输入设备失败");
+        if (self.completionCallBack) self.completionCallBack(nil, error);
         return;
     }
     
@@ -99,11 +104,13 @@
     session = [[AVCaptureSession alloc] init];
     if (![session canAddInput:videoInput]) {
         NSLog(@"无法添加输入设备");
+        if (self.completionCallBack) self.completionCallBack(nil, error);
         session = nil;
         return;
     }
     if (![session canAddOutput:dataOutput]) {
         NSLog(@"无法添加输入设备");
+        if (self.completionCallBack) self.completionCallBack(nil, error);
         session = nil;
         return;
     }
@@ -125,13 +132,16 @@
  */
 - (void)setupLayers
 {
+    NSError *error = [NSError errorWithDomain:DKDomian code:0 userInfo:@{@"message":@"无权限打开摄像头"}];
     if (self.parentView == nil) {
         NSLog(@"父视图不存在");
+        if (self.completionCallBack) self.completionCallBack(nil, error);
         return;
     }
     
     if (session == nil) {
         NSLog(@"拍摄会话不存在");
+        if (self.completionCallBack) self.completionCallBack(nil, error);
         return;
     }
     
@@ -302,7 +312,7 @@
             [self stopScan];
             // 完成回调
             if (self.completionCallBack) {
-                self.completionCallBack(dataObject.stringValue);
+                self.completionCallBack(dataObject.stringValue, nil);
 //            }
         }
     }

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^DKScannerBlock)(NSString *result, NSError *error);
+
 /**
  二维码/条码扫描器
  */
@@ -21,7 +23,7 @@
  @param completion 完成回调
  @return 扫描器
  */
-+ (instancetype)scanerWithView:(UIView *)view scanFrame:(CGRect)scanFrame completion:(void (^)(NSString *stringValue))completion;
++ (instancetype)scanerWithView:(UIView *)view scanFrame:(CGRect)scanFrame completion:(DKScannerBlock)completion;
 
 /**
  扫描图像

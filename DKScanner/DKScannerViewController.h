@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^DKScannerCompletionCallBack)(NSString *result, NSError *error);
+
 /**
  扫描控制器
  */
@@ -23,12 +25,17 @@
  */
 @property (nonatomic, copy) NSString *titleString;
 
+/** 
+ 错误时是否自动弹出对话框
+ */
+@property (nonatomic, assign, getter=isAutoShowErrorAlert) BOOL autoShowErrorAlert;
+
 /**
  实例化扫描控制器
 
  @param completion 完成回调
  @return 扫描控制器
  */
-- (instancetype)initWithCompletion:(void (^)(NSString *stringValue))completion;
+- (instancetype)initWithCompletion:(DKScannerCompletionCallBack)completion;
 
 @end

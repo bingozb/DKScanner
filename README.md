@@ -29,14 +29,38 @@ pod 'DKScanner'
 
 ```objc
 
-DKScannerController *scannerVc = [DKScannerController scannerWithCompletion:^(NSString *stringValue) {
-        NSLog(@"扫描结果: %@", stringValue);
+DKScannerController *scannerVc = [DKScannerController scannerWithCompletion:^(NSString *result) {
+        NSLog(@"扫描结果: %@", result);
 }];
 // 设置导航栏标题、标题颜色和主题色
 [scannerVc setTitle:@"扫描二维码" titleColor:[UIColor whiteColor] tintColor:[UIColor redColor]];
 // modal
 [self presentViewController:scannerVc animated:YES completion:nil];
 
+```
+
+**如果不允许 APP 访问相机，反馈无权限信息**
+
+调用 scannerWithAutoShowErrorAlert:completion: ，autoShowErrorAlert 赋值 为 YES 时会自动弹出对话框。
+```objc
+DKScannerController *scannerVc = [DKScannerController scannerWithAutoShowErrorAlert:YES completion:^(NSString *result, NSError *error) {
+        NSLog(@"扫描结果: %@", result);
+        // ...
+    }];
+[self presentViewController:scannerVc animated:YES completion:nil];
+```
+
+如果对默认弹出的内容或样式不满意，可以将 autoShowErrorAlert 赋值为NO，然后再回调中判断 error 是否为空，error 有值则为无权限，然后就可以做相应的处理。
+
+```objc
+DKScannerController *scannerVc = [DKScannerController scannerWithAutoShowErrorAlert:NO completion:^(NSString *result, NSError *error) {
+        NSLog(@"扫描结果: %@", result);
+        if (error) {
+            NSLog(@"拒绝访问，请到系统设置 - 隐私 - 相机 中，允许APP【XXX】访问相机");
+            // showError ...
+        }
+    }];
+[self presentViewController:scannerVc animated:YES completion:nil];
 ```
 
 ## 注意
