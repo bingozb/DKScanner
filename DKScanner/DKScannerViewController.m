@@ -70,7 +70,7 @@
         
         if (error) { // 有错误就提示
             if (weakSelf.isAutoShowErrorAlert) { // 判断是否自动弹出对话框
-            [weakSelf alertWithOKButtonWithTitle:@"拒绝访问" message:@"请在系统设置 - 隐私 - 相机 中，允许【顺丰大当家】访问相机"];
+            [weakSelf alertWithOKButtonWithTitle:@"拒绝访问" message:[NSString stringWithFormat:@"请在系统设置 - 隐私 - 相机 中，允许【%@】访问相机",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"]]];
             }
         } else {
             // 关闭
