@@ -50,7 +50,7 @@ DKScannerController *scannerVc = [DKScannerController scannerWithAutoShowErrorAl
 [self presentViewController:scannerVc animated:YES completion:nil];
 ```
 
-如果对默认弹出的内容或样式不满意，可以将 autoShowErrorAlert 赋值为NO，然后再回调中判断 error 是否为空，error 有值则为无权限，然后就可以做相应的处理。
+如果对默认弹出的内容或样式不满意，可以将 autoShowErrorAlert 赋值为NO，然后在回调中判断 error 是否为空，error 有值则为无权限，然后就可以做相应的处理。
 
 ```objc
 DKScannerController *scannerVc = [DKScannerController scannerWithAutoShowErrorAlert:NO completion:^(NSString *result, NSError *error) {
