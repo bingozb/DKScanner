@@ -70,7 +70,11 @@
         
         if (error) { // 有错误就提示
             if (weakSelf.isAutoShowErrorAlert) { // 判断是否自动弹出对话框
-            [weakSelf alertWithOKButtonWithTitle:@"拒绝访问" message:[NSString stringWithFormat:@"请在系统设置 - 隐私 - 相机 中，允许【%@】访问相机",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"]]];
+                NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+                if (!appName.length)
+                    appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
+                
+                [weakSelf alertWithOKButtonWithTitle:@"拒绝访问" message:[NSString stringWithFormat:@"请在系统设置 - 隐私 - 相机 中，允许【%@】访问相机",appName]];
             }
         } else {
             // 关闭
@@ -145,8 +149,9 @@
 - (void)alertWithOKButtonWithTitle:(NSString *)title message:(NSString *)message
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    __weak typeof(self) weakSelf = self;
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self closeBtnClick];
+        [weakSelf closeBtnClick];
     }];
     [alert addAction:action];
     [self presentViewController:alert animated:YES completion:nil];
