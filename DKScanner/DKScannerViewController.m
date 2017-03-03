@@ -182,6 +182,8 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
     // 扫描图像
     [DKScanner scanWithImage:info[UIImagePickerControllerOriginalImage] completion:^(NSArray *values) {
         if (values.count) {
@@ -189,8 +191,12 @@
                 self.completionCallBack(values.firstObject, nil);
             }];
         } else {
-            tipLabel.text = @"没有识别到二维码/条形码，请选择其他照片";
-            [self dismissViewControllerAnimated:YES completion:nil];
+            NSString *errorStr = @"没有识别到二维码/条形码，请选择其他照片";
+            tipLabel.text = errorStr;
+            [tipLabel sizeToFit];
+            tipLabel.center = CGPointMake(scannerBorder.center.x, CGRectGetMaxY(scannerBorder.frame) + kControlMargin);
+            NSError *error = [NSError errorWithDomain:@"cn.dankal.scanner" code:0 userInfo:@{@"message":errorStr}];
+            self.completionCallBack(nil, error);
         }
     }];
 }
