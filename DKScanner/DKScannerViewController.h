@@ -7,28 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DKScannerBorderView.h"
+#import "DKScannerMaskView.h"
 
-typedef void (^DKScannerCompletionCallBack)(NSString *result, NSError *error);
+typedef void (^DKScannerCompletion)(NSString *result, NSError *error);
 
-/**
- 扫描控制器
- */
 @interface DKScannerViewController : UIViewController
 
-/**
- 前景色 (字体颜色)
- */
-@property (nonatomic, strong) UIColor *foregroundColor;
+/** 扫描框 */
+@property (nonatomic, strong, readonly) DKScannerBorderView *scannerBorderView;
+/** 背景遮罩层 */
+@property (nonatomic, strong, readonly) DKScannerMaskView *maskView;
+/** 提示文本栏 */
+@property (nonatomic, strong, readonly) UILabel *tipsLabel;
 
-/**
- 标题文本
- */
-@property (nonatomic, copy) NSString *titleString;
-
-/** 
- 错误时是否自动弹出对话框
- */
-@property (nonatomic, assign, getter=isAutoShowErrorAlert) BOOL autoShowErrorAlert;
+/** 扫描完成回调 */
+@property (nonatomic, copy) DKScannerCompletion completion;
 
 /**
  实例化扫描控制器
@@ -36,6 +30,6 @@ typedef void (^DKScannerCompletionCallBack)(NSString *result, NSError *error);
  @param completion 完成回调
  @return 扫描控制器
  */
-- (instancetype)initWithCompletion:(DKScannerCompletionCallBack)completion;
+- (instancetype)initWithCompletion:(DKScannerCompletion)completion;
 
 @end

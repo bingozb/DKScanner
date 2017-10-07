@@ -1,5 +1,5 @@
 //
-//  DKScannerBorder.h
+//  DKScannerBorderView.h
 //  DKScanner
 //
 //  Created by 庄槟豪 on 2017/1/12.
@@ -11,7 +11,7 @@
 /**
  扫描框视图
  */
-@interface DKScannerBorder : UIView
+@interface DKScannerBorderView : UIView
 
 /**
  开始扫描动画

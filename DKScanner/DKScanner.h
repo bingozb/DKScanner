@@ -1,66 +1,31 @@
 //
 //  DKScanner.h
-//  DKScanner
+//  DKScannerExample
 //
-//  Created by 庄槟豪 on 2017/1/12.
-//  Copyright © 2017年 cn.dankal. All rights reserved.
+//  Created by Bingo💤 on 07/10/2017.
+//  Copyright © 2017 cn.dankal. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
-typedef void(^DKScannerBlock)(NSString *result, NSError *error);
+#import "DKScannerViewController.h"
 
-/**
- 二维码/条码扫描器
- */
 @interface DKScanner : NSObject
 
 /**
- 使用视图实例化扫描器，扫描预览窗口会添加到指定视图中
+ 以`modal`的方式弹出扫一扫控制器
 
- @param view 指定的视图
- @param scanFrame 扫描范围
- @param completion 完成回调
- @return 扫描器
+ @param scanner 设置扫描控制器回调
+ @param completion 扫描完成回调
  */
-+ (instancetype)scanerWithView:(UIView *)view scanFrame:(CGRect)scanFrame completion:(DKScannerBlock)completion;
++ (void)modalScanner:(void(^)(DKScannerViewController *scannerVc))scanner completion:(void(^)(NSString *result))completion;
 
 /**
- 扫描图像
+ 以`push`的方式弹出扫一扫控制器，要求主窗口中存在导航栏控制器
 
- @param image 包含二维码的图像
- @param completion 完成回调
- @remark 目前只支持64位的iOS设备
+ @param scanner 设置扫描控制器回调
+ @param completion 扫描完成回调
  */
-+ (void)scanWithImage:(UIImage *)image completion:(void (^)(NSArray *values))completion;
-
-///**
-// 使用 string / 头像 异步生成二维码图像
-//
-// @param string 二维码图像的字符串
-// @param avatar 头像图像，默认比例 0.2
-// @param completion 完成回调
-// */
-//+ (void)qrImageWithString:(NSString *)string avatar:(UIImage *)avatar completion:(void (^)(UIImage *image))completion;
-//
-///**
-// 使用 string / 头像 异步生成二维码图像，并且指定头像占二维码图像的比例
-//
-// @param string 二维码图像的字符串
-// @param avatar 头像图像
-// @param scale 头像占二维码图像的比例
-// @param completion 完成回调
-// */
-//+ (void)qrImageWithString:(NSString *)string avatar:(UIImage *)avatar scale:(CGFloat)scale completion:(void (^)(UIImage *))completion;
-
-/**
- 开始扫描
- */
-- (void)startScan;
-
-/**
- 停止扫描
- */
-- (void)stopScan;
++ (void)pushScanner:(void(^)(DKScannerViewController *scannerVc))scanner completion:(void(^)(NSString *result))completion;
 
 @end

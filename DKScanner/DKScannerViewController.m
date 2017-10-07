@@ -7,30 +7,71 @@
 //
 
 #import "DKScannerViewController.h"
-#import "DKScannerBorder.h"
-#import "DKScannerMaskView.h"
-#import "DKScanner.h"
+#import "DKScannerCapture.h"
+#import "UIViewController+DKScannerAlert.h"
+#import <Masonry/Masonry.h>
 
-#define kControlMargin 32.0
+#define KTipLabelMargin 32.0
+#define KBorderViewMargin 40.0
 
 @interface DKScannerViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-/** 完成回调 */
-@property (nonatomic, copy) DKScannerCompletionCallBack completionCallBack;
+@property (nonatomic, strong, readwrite) DKScannerBorderView *scannerBorderView;
+@property (nonatomic, strong, readwrite) DKScannerMaskView *maskView;
+@property (nonatomic, strong, readwrite) UILabel *tipsLabel;
+@property (nonatomic, strong) DKScannerCapture *scannerCapture;
+@property (nonatomic) CGRect scanTargetFrame;
 @end
 
 @implementation DKScannerViewController
+
+- (CGRect)scanTargetFrame
 {
-    DKScannerBorder *scannerBorder; // 扫描框
-    DKScanner *scanner; // 扫描器
-    UILabel *tipLabel;  // 提示标签
+    CGFloat screenW = [UIScreen mainScreen].bounds.size.width;
+    CGFloat screenH = [UIScreen mainScreen].bounds.size.height;
+    CGFloat wh = screenW - KBorderViewMargin * 2;
+    CGFloat x = screenW * 0.5 - wh * 0.5;
+    CGFloat y = screenH * 0.5 - wh * 0.5;
+    return CGRectMake(x, y, wh, wh);
+}
+
+- (DKScannerBorderView *)scannerBorderView
+{
+    if (!_scannerBorderView) {
+        DKScannerBorderView *scannerBorderView = [[DKScannerBorderView alloc] init];
+        scannerBorderView.tintColor = [UIColor whiteColor];
+        _scannerBorderView = scannerBorderView;
+    }
+    return _scannerBorderView;
+}
+
+- (DKScannerMaskView *)maskView
+{
+    if (!_maskView) {
+        _maskView = [DKScannerMaskView maskViewWithFrame:[UIScreen mainScreen].bounds cropRect:self.scanTargetFrame];
+    }
+    return _maskView;
+}
+
+- (UILabel *)tipsLabel
+{
+    if (!_tipsLabel) {
+        UILabel *tipsLabel = [[UILabel alloc] init];
+        tipsLabel.text = @"将二维码/条码放入框中，即可自动扫描";
+        tipsLabel.font = [UIFont systemFontOfSize:13];
+        tipsLabel.textColor = [UIColor whiteColor];
+        tipsLabel.textAlignment = NSTextAlignmentCenter;
+        [tipsLabel sizeToFit];
+        _tipsLabel = tipsLabel;
+    }
+    return _tipsLabel;
 }
 
 #pragma mark - Life Cycle
 
-- (instancetype)initWithCompletion:(DKScannerCompletionCallBack)completion
+- (instancetype)initWithCompletion:(DKScannerCompletion)completion
 {
     if (self = [super init]) {
-        self.completionCallBack = completion;
+        self.completion = completion;
     }
     return self;
 }
@@ -40,7 +81,6 @@
     [super viewDidLoad];
     
     [self setupUI];
-    
     [self setupScanner];
 }
 
@@ -48,89 +88,81 @@
 {
     [super viewWillAppear:animated];
     
-    [scannerBorder startScannerAnimating];
-    [scanner startScan];
+    [self startScan];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
-    [scannerBorder stopScannerAnimating];
-    [scanner stopScan];
-}
-
-/** 创建扫描器 */
-- (void)setupScanner
-{
-    __weak typeof(self) weakSelf = self;
-    scanner = [DKScanner scanerWithView:self.view scanFrame:scannerBorder.frame completion:^(NSString *result, NSError *error) {
-        // 完成回调
-        weakSelf.completionCallBack(result, error);
-        
-        if (error) { // 有错误就提示
-            if (weakSelf.isAutoShowErrorAlert) { // 判断是否自动弹出对话框
-                NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
-                if (!appName.length)
-                    appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
-                
-                [weakSelf alertWithOKButtonWithTitle:@"拒绝访问" message:[NSString stringWithFormat:@"请在系统设置 - 隐私 - 相机 中，允许【%@】访问相机",appName]];
-            }
-        } else {
-            // 关闭
-            [weakSelf closeBtnClick];
-        }
-    }];
+    [self stopScan];
 }
 
 - (void)setupUI
 {
     [self setupNavigationBar];
-    [self setupScanerBorder];
-    [self setupTipLabel];
+    [self setupScanerBorderView];
+    [self setupMaskView];
+    [self setupTipsLabel];
 }
 
-/** 提示标签 */
-- (void)setupTipLabel
-{
-    tipLabel = [[UILabel alloc] init];
-    tipLabel.text = @"将二维码/条码放入框中，即可自动扫描";
-    tipLabel.font = [UIFont systemFontOfSize:12];
-    tipLabel.textColor = self.foregroundColor;
-    tipLabel.textAlignment = NSTextAlignmentCenter;
-    [tipLabel sizeToFit];
-    tipLabel.center = CGPointMake(scannerBorder.center.x, CGRectGetMaxY(scannerBorder.frame) + kControlMargin);
-    
-    [self.view addSubview:tipLabel];
-}
-
-/** 扫描框 */
-- (void)setupScanerBorder
-{
-    CGFloat width = self.view.bounds.size.width - 80;
-    scannerBorder = [[DKScannerBorder alloc] initWithFrame:CGRectMake(0, 0, width, width)];
-    scannerBorder.center = self.view.center;
-    scannerBorder.tintColor = self.navigationController.navigationBar.tintColor;
-    [self.view addSubview:scannerBorder];
-    
-    DKScannerMaskView *maskView = [DKScannerMaskView maskViewWithFrame:self.view.bounds cropRect:scannerBorder.frame];
-    [self.view insertSubview:maskView atIndex:0];
-}
-
-/** 导航栏 */
 - (void)setupNavigationBar
 {
-    // 背景颜色
-    [self.navigationController.navigationBar setBarTintColor:self.navigationController.navigationBar.tintColor];
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    void(^setupNavigationBar)() = ^{
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+        self.navigationController.navigationBar.translucent = YES;
+        self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+        
+        self.navigationItem.title = @"扫一扫";
+        self.navigationItem.leftBarButtonItem = [self barButtonItemWithTitle:@"关闭" action:@selector(closeBtnClick)];
+        self.navigationItem.rightBarButtonItem = [self barButtonItemWithTitle:@"相册" action:@selector(albumBtnClick)];
+    };
     
-    // 标题
-    self.navigationItem.title = self.titleString;
+    if (self.navigationController) {
+        setupNavigationBar();
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.navigationController) {
+                setupNavigationBar();
+            }
+        });
+    }
+}
+
+- (void)setupScanerBorderView
+{
+    [self.view addSubview:self.scannerBorderView];
     
-    // 关闭、相册
-    self.navigationItem.leftBarButtonItem = [self barButtonItemWithTitle:@"关闭" action:@selector(closeBtnClick)];
-    self.navigationItem.rightBarButtonItem = [self barButtonItemWithTitle:@"相册" action:@selector(albumBtnClick)];
+    [self.scannerBorderView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(self.scanTargetFrame.size);
+        make.center.equalTo(self.view);
+    }];
+}
+
+- (void)setupMaskView
+{
+    [self.view insertSubview:self.maskView atIndex:0];
+}
+
+- (void)setupTipsLabel
+{
+    [self.view addSubview:self.tipsLabel];
+    
+    // Constraints
+    [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.scannerBorderView.mas_bottom).offset(KTipLabelMargin);
+    }];
+}
+
+- (void)setupScanner
+{
+    self.scannerCapture = [DKScannerCapture scanerWithView:self.view scanFrame:self.scanTargetFrame completion:^(NSString *result, NSError *error) {
+        if (self.completion) {
+            self.completion(result, error);
+        }
+        [self closeBtnClick];
+    }];
 }
 
 #pragma mark - Private Method
@@ -139,38 +171,43 @@
 {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     [btn setTitle:title forState:UIControlStateNormal];
-    [btn setTitleColor:self.foregroundColor forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn sizeToFit];
     [btn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
-    
-    return [[UIBarButtonItem alloc] initWithCustomView:btn];
-}
 
-- (void)alertWithOKButtonWithTitle:(NSString *)title message:(NSString *)message
-{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    __weak typeof(self) weakSelf = self;
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [weakSelf closeBtnClick];
-    }];
-    [alert addAction:action];
-    [self presentViewController:alert animated:YES completion:nil];
+    return [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
 
 #pragma mark - Events
 
+- (void)startScan
+{
+    [self.scannerCapture startScan];
+    [self.scannerBorderView startScannerAnimating];
+}
+
+- (void)stopScan
+{
+    [self.scannerCapture stopScan];
+    [self.scannerBorderView stopScannerAnimating];
+}
+
 - (void)closeBtnClick
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (self.navigationController.childViewControllers.count > 1) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)albumBtnClick
 {
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-        tipLabel.text = @"无法访问相册";
+        self.tipsLabel.text = @"无法访问相册";
         return;
     }
-    
+
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.view.backgroundColor = [UIColor whiteColor];
     picker.delegate = self;
@@ -183,20 +220,19 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
-    
-    // 扫描图像
-    [DKScanner scanWithImage:info[UIImagePickerControllerOriginalImage] completion:^(NSArray *values) {
+
+    [DKScannerCapture scanWithImage:info[UIImagePickerControllerOriginalImage] completion:^(NSArray *values) {
         if (values.count) {
             [self dismissViewControllerAnimated:YES completion:^{
-                self.completionCallBack(values.firstObject, nil);
+                self.completion(values.firstObject, nil);
             }];
         } else {
             NSString *errorStr = @"没有识别到二维码/条形码，请选择其他照片";
-            tipLabel.text = errorStr;
-            [tipLabel sizeToFit];
-            tipLabel.center = CGPointMake(scannerBorder.center.x, CGRectGetMaxY(scannerBorder.frame) + kControlMargin);
+            self.tipsLabel.text = errorStr;
+            [self.tipsLabel sizeToFit];
+            self.tipsLabel.center = CGPointMake(self.scannerBorderView.center.x, CGRectGetMaxY(self.scannerBorderView.frame) + KTipLabelMargin);
             NSError *error = [NSError errorWithDomain:@"cn.dankal.scanner" code:0 userInfo:@{@"message":errorStr}];
-            self.completionCallBack(nil, error);
+            self.completion(nil, error);
         }
     }];
 }

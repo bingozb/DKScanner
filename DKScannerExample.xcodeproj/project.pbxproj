@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AC2EC3700654A285D583FCD /* libPods-DKScannerExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0456A6AD1A4FF690210882E4 /* libPods-DKScannerExample.a */; };
+		B6D13125C9C98EA806B5EA82 /* libPods-DKScannerExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DBF881824EB11181724462 /* libPods-DKScannerExampleTests.a */; };
 		D74509B91E26A5DA001D1198 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509B81E26A5DA001D1198 /* main.m */; };
 		D74509BC1E26A5DA001D1198 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509BB1E26A5DA001D1198 /* AppDelegate.m */; };
 		D74509BF1E26A5DA001D1198 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509BE1E26A5DA001D1198 /* ViewController.m */; };
@@ -14,12 +16,13 @@
 		D74509C41E26A5DA001D1198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74509C31E26A5DA001D1198 /* Assets.xcassets */; };
 		D74509C71E26A5DA001D1198 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74509C51E26A5DA001D1198 /* LaunchScreen.storyboard */; };
 		D74509D21E26A5DA001D1198 /* DKScannerExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509D11E26A5DA001D1198 /* DKScannerExampleTests.m */; };
-		D74509EC1E26A64E001D1198 /* DKScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509E11E26A64E001D1198 /* DKScanner.m */; };
-		D74509ED1E26A64E001D1198 /* DKScannerBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509E31E26A64E001D1198 /* DKScannerBorder.m */; };
-		D74509EE1E26A64E001D1198 /* DKScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509E51E26A64E001D1198 /* DKScannerController.m */; };
+		D74509EC1E26A64E001D1198 /* DKScannerCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509E11E26A64E001D1198 /* DKScannerCapture.m */; };
+		D74509ED1E26A64E001D1198 /* DKScannerBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509E31E26A64E001D1198 /* DKScannerBorderView.m */; };
 		D74509EF1E26A64E001D1198 /* DKScannerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509E71E26A64E001D1198 /* DKScannerMaskView.m */; };
 		D74509F01E26A64E001D1198 /* DKScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D74509E91E26A64E001D1198 /* DKScannerViewController.m */; };
 		D74509F21E26AE0B001D1198 /* DKScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D74509F11E26AE0B001D1198 /* DKScanner.bundle */; };
+		D758AA291F87D8070090983D /* UIViewController+DKScannerAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D758AA281F87D8070090983D /* UIViewController+DKScannerAlert.m */; };
+		D758AA491F87E39B0090983D /* DKScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = D758AA481F87E39A0090983D /* DKScanner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0456A6AD1A4FF690210882E4 /* libPods-DKScannerExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DKScannerExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E375F543875DFEDD1F2F75F /* Pods-DKScannerExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DKScannerExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DKScannerExampleTests/Pods-DKScannerExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		67B4C1F59DB9F5B0BD12E7B4 /* Pods-DKScannerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DKScannerExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DKScannerExample/Pods-DKScannerExample.debug.xcconfig"; sourceTree = "<group>"; };
+		9A4E257985A03E9E3E84B521 /* Pods-DKScannerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DKScannerExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-DKScannerExample/Pods-DKScannerExample.release.xcconfig"; sourceTree = "<group>"; };
+		A94BFE7B724BDB70D5853986 /* Pods-DKScannerExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DKScannerExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DKScannerExampleTests/Pods-DKScannerExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D74509B41E26A5DA001D1198 /* DKScannerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DKScannerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74509B81E26A5DA001D1198 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D74509BA1E26A5DA001D1198 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -46,17 +54,20 @@
 		D74509CD1E26A5DA001D1198 /* DKScannerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DKScannerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74509D11E26A5DA001D1198 /* DKScannerExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKScannerExampleTests.m; sourceTree = "<group>"; };
 		D74509D31E26A5DA001D1198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D74509E01E26A64E001D1198 /* DKScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKScanner.h; sourceTree = "<group>"; };
-		D74509E11E26A64E001D1198 /* DKScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKScanner.m; sourceTree = "<group>"; };
-		D74509E21E26A64E001D1198 /* DKScannerBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKScannerBorder.h; sourceTree = "<group>"; };
-		D74509E31E26A64E001D1198 /* DKScannerBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKScannerBorder.m; sourceTree = "<group>"; };
-		D74509E41E26A64E001D1198 /* DKScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKScannerController.h; sourceTree = "<group>"; };
-		D74509E51E26A64E001D1198 /* DKScannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKScannerController.m; sourceTree = "<group>"; };
+		D74509E01E26A64E001D1198 /* DKScannerCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKScannerCapture.h; sourceTree = "<group>"; };
+		D74509E11E26A64E001D1198 /* DKScannerCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKScannerCapture.m; sourceTree = "<group>"; };
+		D74509E21E26A64E001D1198 /* DKScannerBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKScannerBorderView.h; sourceTree = "<group>"; };
+		D74509E31E26A64E001D1198 /* DKScannerBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKScannerBorderView.m; sourceTree = "<group>"; };
 		D74509E61E26A64E001D1198 /* DKScannerMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKScannerMaskView.h; sourceTree = "<group>"; };
 		D74509E71E26A64E001D1198 /* DKScannerMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKScannerMaskView.m; sourceTree = "<group>"; };
 		D74509E81E26A64E001D1198 /* DKScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKScannerViewController.h; sourceTree = "<group>"; };
 		D74509E91E26A64E001D1198 /* DKScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKScannerViewController.m; sourceTree = "<group>"; };
 		D74509F11E26AE0B001D1198 /* DKScanner.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DKScanner.bundle; sourceTree = "<group>"; };
+		D758AA271F87D8070090983D /* UIViewController+DKScannerAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DKScannerAlert.h"; sourceTree = "<group>"; };
+		D758AA281F87D8070090983D /* UIViewController+DKScannerAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DKScannerAlert.m"; sourceTree = "<group>"; };
+		D758AA471F87E39A0090983D /* DKScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKScanner.h; sourceTree = "<group>"; };
+		D758AA481F87E39A0090983D /* DKScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKScanner.m; sourceTree = "<group>"; };
+		E4DBF881824EB11181724462 /* libPods-DKScannerExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DKScannerExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AC2EC3700654A285D583FCD /* libPods-DKScannerExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,18 +83,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D13125C9C98EA806B5EA82 /* libPods-DKScannerExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2697EF598E690062276A88A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0456A6AD1A4FF690210882E4 /* libPods-DKScannerExample.a */,
+				E4DBF881824EB11181724462 /* libPods-DKScannerExampleTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D74509AB1E26A5D9001D1198 = {
 			isa = PBXGroup;
 			children = (
 				D74509B61E26A5DA001D1198 /* DKScannerExample */,
 				D74509D01E26A5DA001D1198 /* DKScannerExampleTests */,
 				D74509B51E26A5DA001D1198 /* Products */,
+				F39EBE26B5E4499B30DC0413 /* Pods */,
+				2697EF598E690062276A88A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,19 +157,32 @@
 			isa = PBXGroup;
 			children = (
 				D74509F11E26AE0B001D1198 /* DKScanner.bundle */,
-				D74509E01E26A64E001D1198 /* DKScanner.h */,
-				D74509E11E26A64E001D1198 /* DKScanner.m */,
-				D74509E21E26A64E001D1198 /* DKScannerBorder.h */,
-				D74509E31E26A64E001D1198 /* DKScannerBorder.m */,
-				D74509E41E26A64E001D1198 /* DKScannerController.h */,
-				D74509E51E26A64E001D1198 /* DKScannerController.m */,
+				D758AA471F87E39A0090983D /* DKScanner.h */,
+				D758AA481F87E39A0090983D /* DKScanner.m */,
+				D74509E01E26A64E001D1198 /* DKScannerCapture.h */,
+				D74509E11E26A64E001D1198 /* DKScannerCapture.m */,
+				D74509E21E26A64E001D1198 /* DKScannerBorderView.h */,
+				D74509E31E26A64E001D1198 /* DKScannerBorderView.m */,
 				D74509E61E26A64E001D1198 /* DKScannerMaskView.h */,
 				D74509E71E26A64E001D1198 /* DKScannerMaskView.m */,
 				D74509E81E26A64E001D1198 /* DKScannerViewController.h */,
 				D74509E91E26A64E001D1198 /* DKScannerViewController.m */,
+				D758AA271F87D8070090983D /* UIViewController+DKScannerAlert.h */,
+				D758AA281F87D8070090983D /* UIViewController+DKScannerAlert.m */,
 			);
 			path = DKScanner;
 			sourceTree = SOURCE_ROOT;
+		};
+		F39EBE26B5E4499B30DC0413 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67B4C1F59DB9F5B0BD12E7B4 /* Pods-DKScannerExample.debug.xcconfig */,
+				9A4E257985A03E9E3E84B521 /* Pods-DKScannerExample.release.xcconfig */,
+				A94BFE7B724BDB70D5853986 /* Pods-DKScannerExampleTests.debug.xcconfig */,
+				0E375F543875DFEDD1F2F75F /* Pods-DKScannerExampleTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -154,9 +191,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D74509D61E26A5DA001D1198 /* Build configuration list for PBXNativeTarget "DKScannerExample" */;
 			buildPhases = (
+				50A17D325C481C69DEDBAA0D /* [CP] Check Pods Manifest.lock */,
 				D74509B01E26A5DA001D1198 /* Sources */,
 				D74509B11E26A5DA001D1198 /* Frameworks */,
 				D74509B21E26A5DA001D1198 /* Resources */,
+				0F1E941D0F11F42B27F222C1 /* [CP] Embed Pods Frameworks */,
+				BFC0BB68FC1A44AA85711BDB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,9 +211,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D74509D91E26A5DA001D1198 /* Build configuration list for PBXNativeTarget "DKScannerExampleTests" */;
 			buildPhases = (
+				E93140813910A3E8869EA3D5 /* [CP] Check Pods Manifest.lock */,
 				D74509C91E26A5DA001D1198 /* Sources */,
 				D74509CA1E26A5DA001D1198 /* Frameworks */,
 				D74509CB1E26A5DA001D1198 /* Resources */,
+				8C018EB7E4E385A07CB3495B /* [CP] Embed Pods Frameworks */,
+				35410DA8E4C78D9ADCA691DD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,19 +290,119 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F1E941D0F11F42B27F222C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DKScannerExample/Pods-DKScannerExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		35410DA8E4C78D9ADCA691DD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DKScannerExampleTests/Pods-DKScannerExampleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50A17D325C481C69DEDBAA0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DKScannerExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C018EB7E4E385A07CB3495B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DKScannerExampleTests/Pods-DKScannerExampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BFC0BB68FC1A44AA85711BDB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DKScannerExample/Pods-DKScannerExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E93140813910A3E8869EA3D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DKScannerExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D74509B01E26A5DA001D1198 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D74509BF1E26A5DA001D1198 /* ViewController.m in Sources */,
-				D74509EC1E26A64E001D1198 /* DKScanner.m in Sources */,
+				D758AA491F87E39B0090983D /* DKScanner.m in Sources */,
+				D74509EC1E26A64E001D1198 /* DKScannerCapture.m in Sources */,
 				D74509F01E26A64E001D1198 /* DKScannerViewController.m in Sources */,
 				D74509BC1E26A5DA001D1198 /* AppDelegate.m in Sources */,
 				D74509EF1E26A64E001D1198 /* DKScannerMaskView.m in Sources */,
 				D74509B91E26A5DA001D1198 /* main.m in Sources */,
-				D74509EE1E26A64E001D1198 /* DKScannerController.m in Sources */,
-				D74509ED1E26A64E001D1198 /* DKScannerBorder.m in Sources */,
+				D74509ED1E26A64E001D1198 /* DKScannerBorderView.m in Sources */,
+				D758AA291F87D8070090983D /* UIViewController+DKScannerAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +534,7 @@
 		};
 		D74509D71E26A5DA001D1198 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67B4C1F59DB9F5B0BD12E7B4 /* Pods-DKScannerExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G8M2K7562P;
@@ -404,6 +548,7 @@
 		};
 		D74509D81E26A5DA001D1198 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A4E257985A03E9E3E84B521 /* Pods-DKScannerExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G8M2K7562P;
@@ -417,6 +562,7 @@
 		};
 		D74509DA1E26A5DA001D1198 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A94BFE7B724BDB70D5853986 /* Pods-DKScannerExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = G8M2K7562P;
@@ -430,6 +576,7 @@
 		};
 		D74509DB1E26A5DA001D1198 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E375F543875DFEDD1F2F75F /* Pods-DKScannerExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = G8M2K7562P;

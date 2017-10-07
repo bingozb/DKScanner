@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "DKScannerController.h"
+#import "DKScanner.h"
 
 @interface ViewController ()
 
@@ -22,12 +22,27 @@
 
 - (IBAction)scan:(UIButton *)sender
 {
-    DKScannerController *scannerVc = [DKScannerController scannerWithAutoShowErrorAlert:YES completion:^(NSString *result, NSError *error) {
-        NSLog(@"扫描结果: %@", result);
-        [sender setTitle:result forState:UIControlStateNormal];
+    [self modalTest];
+    
+//    [self pushTest];
+}
+
+- (void)modalTest
+{
+    [DKScanner modalScanner:^(DKScannerViewController *scannerVc) {
+        scannerVc.scannerBorderView.tintColor = [UIColor greenColor];
+    } completion:^(NSString *result) {
+        NSLog(@"%@", result);
     }];
-    [scannerVc setTitle:@"扫描二维码" titleColor:[UIColor whiteColor] tintColor:[UIColor redColor]];
-    [self presentViewController:scannerVc animated:YES completion:nil];
+}
+
+- (void)pushTest
+{
+    [DKScanner pushScanner:^(DKScannerViewController *scannerVc) {
+        scannerVc.scannerBorderView.tintColor = [UIColor redColor];
+    } completion:^(NSString *result) {
+        NSLog(@"%@", result);
+    }];
 }
 
 @end
