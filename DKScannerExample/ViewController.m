@@ -8,40 +8,19 @@
 
 #import "ViewController.h"
 #import "DKScanner.h"
-
-@interface ViewController ()
-
-@end
+#import "UIViewController+DKScannerAlert.h"
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
 - (IBAction)scan:(UIButton *)sender
-{
-    [self modalTest];
-    
-//    [self pushTest];
-}
-
-- (void)modalTest
 {
     [DKScanner modalScanner:^(DKScannerViewController *scannerVc) {
         scannerVc.scannerBorderView.tintColor = [UIColor greenColor];
     } completion:^(NSString *result) {
         NSLog(@"%@", result);
-    }];
-}
-
-- (void)pushTest
-{
-    [DKScanner pushScanner:^(DKScannerViewController *scannerVc) {
-        scannerVc.scannerBorderView.tintColor = [UIColor redColor];
-    } completion:^(NSString *result) {
-        NSLog(@"%@", result);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self dk_alertWithTitle:@"DKScanner" message:result completion:nil];
+        });
     }];
 }
 
