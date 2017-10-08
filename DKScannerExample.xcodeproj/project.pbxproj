@@ -26,6 +26,7 @@
 		D7F2BAAA1F89A0480099AC8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7F2BAAC1F89A0480099AC8D /* InfoPlist.strings */; };
 		D7F2BAB61F89A79A0099AC8D /* NSBundle+DKScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F2BAB51F89A79A0099AC8D /* NSBundle+DKScanner.m */; };
 		D7F2BAB91F89AA080099AC8D /* DKScannerConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F2BAB81F89AA080099AC8D /* DKScannerConst.m */; };
+		D7F2BAC21F8A70380099AC8D /* DKScannerNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F2BAC11F8A70380099AC8D /* DKScannerNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		D7F2BAB51F89A79A0099AC8D /* NSBundle+DKScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+DKScanner.m"; sourceTree = "<group>"; };
 		D7F2BAB71F89AA080099AC8D /* DKScannerConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKScannerConst.h; sourceTree = "<group>"; };
 		D7F2BAB81F89AA080099AC8D /* DKScannerConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKScannerConst.m; sourceTree = "<group>"; };
+		D7F2BAC01F8A70380099AC8D /* DKScannerNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKScannerNavigationController.h; sourceTree = "<group>"; };
+		D7F2BAC11F8A70380099AC8D /* DKScannerNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKScannerNavigationController.m; sourceTree = "<group>"; };
 		E4DBF881824EB11181724462 /* libPods-DKScannerExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DKScannerExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -185,6 +188,8 @@
 				D7F2BAB51F89A79A0099AC8D /* NSBundle+DKScanner.m */,
 				D7F2BAB71F89AA080099AC8D /* DKScannerConst.h */,
 				D7F2BAB81F89AA080099AC8D /* DKScannerConst.m */,
+				D7F2BAC01F8A70380099AC8D /* DKScannerNavigationController.h */,
+				D7F2BAC11F8A70380099AC8D /* DKScannerNavigationController.m */,
 			);
 			path = DKScanner;
 			sourceTree = SOURCE_ROOT;
@@ -415,6 +420,7 @@
 				D74509BF1E26A5DA001D1198 /* ViewController.m in Sources */,
 				D758AA491F87E39B0090983D /* DKScanner.m in Sources */,
 				D74509EC1E26A64E001D1198 /* DKScannerCapture.m in Sources */,
+				D7F2BAC21F8A70380099AC8D /* DKScannerNavigationController.m in Sources */,
 				D74509F01E26A64E001D1198 /* DKScannerViewController.m in Sources */,
 				D74509BC1E26A5DA001D1198 /* AppDelegate.m in Sources */,
 				D74509EF1E26A64E001D1198 /* DKScannerMaskView.m in Sources */,

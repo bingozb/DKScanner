@@ -1,8 +1,8 @@
 //
 //  DKScannerConst.h
-//  DKScannerExample
+//  DKScanner
 //
-//  Created by Bingo💤 on 08/10/2017.
+//  Created by 庄槟豪 on 08/10/2017.
 //  Copyright © 2017 cn.dankal. All rights reserved.
 //
 
