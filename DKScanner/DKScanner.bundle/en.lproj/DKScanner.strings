@@ -1,0 +1,15 @@
+/* 
+  DKScanner.strings
+  DKScanner
+
+  Created by 庄槟豪 on 08/10/2017.
+  Copyright © 2017 cn.dankal. All rights reserved.
+*/
+
+"SCAN" = "Scanner";
+"PUT_AND_SCAN" = "Align QR Code/barcode within frame to scan";
+"CLOSE" = "Close";
+"ALBUM" = "Album";
+"OK" = "OK";
+"CAN_NOT_ACCESS" = "Can not access Photo Library";
+"CAN_NOT_DETECT" = "Can not recognize the QR Code/barcode, please select another photo";

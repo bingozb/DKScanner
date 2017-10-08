@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--DKScanner-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -24,7 +24,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lag-O3-BYB">
                                 <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="扫一扫"/>
+                                <state key="normal" title="Click to scan."/>
                                 <connections>
                                     <action selector="scan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l8k-Td-XaS"/>
                                 </connections>
@@ -38,7 +38,7 @@
                             <constraint firstItem="lag-O3-BYB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ezG-LC-1Zy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hUv-0S-y5C"/>
+                    <navigationItem key="navigationItem" title="DKScanner" id="hUv-0S-y5C"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

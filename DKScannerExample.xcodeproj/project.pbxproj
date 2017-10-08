@@ -23,6 +23,9 @@
 		D74509F21E26AE0B001D1198 /* DKScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D74509F11E26AE0B001D1198 /* DKScanner.bundle */; };
 		D758AA291F87D8070090983D /* UIViewController+DKScannerAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = D758AA281F87D8070090983D /* UIViewController+DKScannerAlert.m */; };
 		D758AA491F87E39B0090983D /* DKScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = D758AA481F87E39A0090983D /* DKScanner.m */; };
+		D7F2BAAA1F89A0480099AC8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7F2BAAC1F89A0480099AC8D /* InfoPlist.strings */; };
+		D7F2BAB61F89A79A0099AC8D /* NSBundle+DKScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F2BAB51F89A79A0099AC8D /* NSBundle+DKScanner.m */; };
+		D7F2BAB91F89AA080099AC8D /* DKScannerConst.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F2BAB81F89AA080099AC8D /* DKScannerConst.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,14 @@
 		D758AA281F87D8070090983D /* UIViewController+DKScannerAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DKScannerAlert.m"; sourceTree = "<group>"; };
 		D758AA471F87E39A0090983D /* DKScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKScanner.h; sourceTree = "<group>"; };
 		D758AA481F87E39A0090983D /* DKScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKScanner.m; sourceTree = "<group>"; };
+		D7F2BAA61F899FB90099AC8D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		D7F2BAA71F899FBA0099AC8D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D7F2BAAB1F89A0480099AC8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D7F2BAAD1F89A0670099AC8D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D7F2BAB41F89A79A0099AC8D /* NSBundle+DKScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+DKScanner.h"; sourceTree = "<group>"; };
+		D7F2BAB51F89A79A0099AC8D /* NSBundle+DKScanner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+DKScanner.m"; sourceTree = "<group>"; };
+		D7F2BAB71F89AA080099AC8D /* DKScannerConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKScannerConst.h; sourceTree = "<group>"; };
+		D7F2BAB81F89AA080099AC8D /* DKScannerConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DKScannerConst.m; sourceTree = "<group>"; };
 		E4DBF881824EB11181724462 /* libPods-DKScannerExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DKScannerExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -139,6 +150,7 @@
 				D74509C31E26A5DA001D1198 /* Assets.xcassets */,
 				D74509C51E26A5DA001D1198 /* LaunchScreen.storyboard */,
 				D74509C81E26A5DA001D1198 /* Info.plist */,
+				D7F2BAAC1F89A0480099AC8D /* InfoPlist.strings */,
 				D74509B81E26A5DA001D1198 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -169,6 +181,10 @@
 				D74509E91E26A64E001D1198 /* DKScannerViewController.m */,
 				D758AA271F87D8070090983D /* UIViewController+DKScannerAlert.h */,
 				D758AA281F87D8070090983D /* UIViewController+DKScannerAlert.m */,
+				D7F2BAB41F89A79A0099AC8D /* NSBundle+DKScanner.h */,
+				D7F2BAB51F89A79A0099AC8D /* NSBundle+DKScanner.m */,
+				D7F2BAB71F89AA080099AC8D /* DKScannerConst.h */,
+				D7F2BAB81F89AA080099AC8D /* DKScannerConst.m */,
 			);
 			path = DKScanner;
 			sourceTree = SOURCE_ROOT;
@@ -257,6 +273,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = D74509AB1E26A5D9001D1198;
 			productRefGroup = D74509B51E26A5DA001D1198 /* Products */;
@@ -278,6 +295,7 @@
 				D74509F21E26AE0B001D1198 /* DKScanner.bundle in Resources */,
 				D74509C41E26A5DA001D1198 /* Assets.xcassets in Resources */,
 				D74509C21E26A5DA001D1198 /* Main.storyboard in Resources */,
+				D7F2BAAA1F89A0480099AC8D /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,8 +418,10 @@
 				D74509F01E26A64E001D1198 /* DKScannerViewController.m in Sources */,
 				D74509BC1E26A5DA001D1198 /* AppDelegate.m in Sources */,
 				D74509EF1E26A64E001D1198 /* DKScannerMaskView.m in Sources */,
+				D7F2BAB61F89A79A0099AC8D /* NSBundle+DKScanner.m in Sources */,
 				D74509B91E26A5DA001D1198 /* main.m in Sources */,
 				D74509ED1E26A64E001D1198 /* DKScannerBorderView.m in Sources */,
+				D7F2BAB91F89AA080099AC8D /* DKScannerConst.m in Sources */,
 				D758AA291F87D8070090983D /* UIViewController+DKScannerAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +449,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D74509C11E26A5DA001D1198 /* Base */,
+				D7F2BAA61F899FB90099AC8D /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -437,8 +458,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				D74509C61E26A5DA001D1198 /* Base */,
+				D7F2BAA71F899FBA0099AC8D /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D7F2BAAC1F89A0480099AC8D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7F2BAAB1F89A0480099AC8D /* en */,
+				D7F2BAAD1F89A0670099AC8D /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -448,6 +479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -495,6 +527,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

@@ -49,7 +49,7 @@
     } else if ([rootVc isKindOfClass:[UINavigationController class]]) {
         [(UINavigationController *)rootVc pushViewController:scannerVc animated:YES];
     } else {
-        @throw [NSException exceptionWithName:@"DKScanner" reason:@"There is no navigationController in keyWindow, please use `modalScanner:completion:` instead." userInfo:nil];
+        @throw [NSException exceptionWithName:@"DKScanner" reason:@"There is no navigationController in keyWindow, please use `+modalScanner:completion:` instead." userInfo:nil];
     }
 }
 

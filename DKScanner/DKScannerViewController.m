@@ -8,11 +8,10 @@
 
 #import "DKScannerViewController.h"
 #import "DKScannerCapture.h"
-#import "UIViewController+DKScannerAlert.h"
+#import "DKScannerConst.h"
 #import <Masonry/Masonry.h>
-
-#define KTipLabelMargin 32.0
-#define KBorderViewMargin 40.0
+#import "UIViewController+DKScannerAlert.h"
+#import "NSBundle+DKScanner.h"
 
 @interface DKScannerViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong, readwrite) DKScannerBorderView *scannerBorderView;
@@ -28,7 +27,7 @@
 {
     CGFloat screenW = [UIScreen mainScreen].bounds.size.width;
     CGFloat screenH = [UIScreen mainScreen].bounds.size.height;
-    CGFloat wh = screenW - KBorderViewMargin * 2;
+    CGFloat wh = screenW - DKScannerBorderViewMargin * 2;
     CGFloat x = screenW * 0.5 - wh * 0.5;
     CGFloat y = screenH * 0.5 - wh * 0.5;
     return CGRectMake(x, y, wh, wh);
@@ -56,10 +55,11 @@
 {
     if (!_tipsLabel) {
         UILabel *tipsLabel = [[UILabel alloc] init];
-        tipsLabel.text = @"将二维码/条码放入框中，即可自动扫描";
+        tipsLabel.text = [NSBundle dk_localizedStringForKey:DKScannerPutAndScanText];
         tipsLabel.font = [UIFont systemFontOfSize:13];
         tipsLabel.textColor = [UIColor whiteColor];
         tipsLabel.textAlignment = NSTextAlignmentCenter;
+        tipsLabel.numberOfLines = 0;
         [tipsLabel sizeToFit];
         _tipsLabel = tipsLabel;
     }
@@ -113,9 +113,9 @@
         self.navigationController.navigationBar.translucent = YES;
         self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
         
-        self.navigationItem.title = @"扫一扫";
-        self.navigationItem.leftBarButtonItem = [self barButtonItemWithTitle:@"关闭" action:@selector(closeBtnClick)];
-        self.navigationItem.rightBarButtonItem = [self barButtonItemWithTitle:@"相册" action:@selector(albumBtnClick)];
+        self.navigationItem.title = [NSBundle dk_localizedStringForKey:DKScannerScanText];
+        self.navigationItem.leftBarButtonItem = [self barButtonItemWithTitle:[NSBundle dk_localizedStringForKey:DKScannerCloseText] action:@selector(closeBtnClick)];
+        self.navigationItem.rightBarButtonItem = [self barButtonItemWithTitle:[NSBundle dk_localizedStringForKey:DKScannerAlbumText] action:@selector(albumBtnClick)];
     };
     
     if (self.navigationController) {
@@ -151,7 +151,8 @@
     // Constraints
     [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.top.equalTo(self.scannerBorderView.mas_bottom).offset(KTipLabelMargin);
+        make.top.equalTo(self.scannerBorderView.mas_bottom).offset(DKScannerTipsLabelMargin);
+        make.left.right.equalTo(self.view).offset(10);
     }];
 }
 
@@ -204,7 +205,7 @@
 - (void)albumBtnClick
 {
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-        self.tipsLabel.text = @"无法访问相册";
+        self.tipsLabel.text = [NSBundle dk_localizedStringForKey:DKScannerCanNotAccessText];
         return;
     }
 
@@ -227,10 +228,10 @@
                 self.completion(values.firstObject, nil);
             }];
         } else {
-            NSString *errorStr = @"没有识别到二维码/条形码，请选择其他照片";
+            NSString *errorStr = [NSBundle dk_localizedStringForKey:DKScannerCanNotDetectText];
             self.tipsLabel.text = errorStr;
             [self.tipsLabel sizeToFit];
-            self.tipsLabel.center = CGPointMake(self.scannerBorderView.center.x, CGRectGetMaxY(self.scannerBorderView.frame) + KTipLabelMargin);
+            self.tipsLabel.center = CGPointMake(self.scannerBorderView.center.x, CGRectGetMaxY(self.scannerBorderView.frame) + DKScannerTipsLabelMargin);
             NSError *error = [NSError errorWithDomain:@"cn.dankal.scanner" code:0 userInfo:@{@"message":errorStr}];
             self.completion(nil, error);
         }

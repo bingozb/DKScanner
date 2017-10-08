@@ -7,13 +7,15 @@
 //
 
 #import "UIViewController+DKScannerAlert.h"
+#import "NSBundle+DKScanner.h"
+#import "DKScannerConst.h"
 
 @implementation UIViewController (DKScannerAlert)
 
 - (void)dk_alertWithTitle:(NSString *)title message:(NSString *)message completion:(void (^)())completion
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *action = [UIAlertAction actionWithTitle:[NSBundle dk_localizedStringForKey:DKScannerOKText] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         if (completion) {
             completion();
         }

@@ -7,10 +7,9 @@
 //
 
 #import "DKScannerBorderView.h"
+#import "DKScannerConst.h"
 #import <Masonry/Masonry.h>
-
-static NSString * const kBundleName = @"DKScanner";
-static CGFloat    const kAnimateDuration = 3.0f;
+#import "NSBundle+DKScanner.h"
 
 @interface DKScannerBorderView ()
 @property (nonatomic, strong) UIImageView *scanLineImgView;
@@ -38,7 +37,7 @@ static CGFloat    const kAnimateDuration = 3.0f;
 
 - (void)setupScanLine
 {
-    UIImageView *scanLineImgView = [[UIImageView alloc] initWithImage:[self bundleImageWithName:@"DKScanLine"]];
+    UIImageView *scanLineImgView = [[UIImageView alloc] initWithImage:[NSBundle dk_imageWithName:@"DKScanLine"]];
     self.scanLineImgView = scanLineImgView;
     [self addSubview:scanLineImgView];
     
@@ -53,7 +52,7 @@ static CGFloat    const kAnimateDuration = 3.0f;
 {
     for (NSInteger i = 1; i <= 4; i++) {
         NSString *cornerImgName = [NSString stringWithFormat:@"DKScanQR%zd", i];
-        UIImageView *cornerImgView = [[UIImageView alloc] initWithImage:[self bundleImageWithName:cornerImgName]];
+        UIImageView *cornerImgView = [[UIImageView alloc] initWithImage:[NSBundle dk_imageWithName:cornerImgName]];
         [self addSubview:cornerImgView];
         
         // Constraints
@@ -79,17 +78,6 @@ static CGFloat    const kAnimateDuration = 3.0f;
     }
 }
 
-#pragma mark - Private Method
-
-- (UIImage *)bundleImageWithName:(NSString *)imageName
-{
-    NSBundle *scannerBundle = [NSBundle bundleWithURL:[[NSBundle bundleForClass:[self class]] URLForResource:kBundleName withExtension:@"bundle"]];
-    NSString *fileName = [NSString stringWithFormat:@"%@", imageName];
-    NSString *path = [scannerBundle pathForResource:fileName ofType:@"png"];
-    
-    return [[UIImage imageWithContentsOfFile:path] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-}
-
 #pragma mark - public Method
 
 - (void)startScannerAnimating
@@ -97,7 +85,7 @@ static CGFloat    const kAnimateDuration = 3.0f;
     [self stopScannerAnimating];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [UIView animateWithDuration:kAnimateDuration delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:DKScannerAnimateDuration delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [UIView setAnimationRepeatCount:MAXFLOAT];
             CGRect frame = self.scanLineImgView.frame;
             frame.origin.y += self.bounds.size.height;

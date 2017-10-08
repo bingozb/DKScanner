@@ -1,0 +1,15 @@
+/* 
+  DKScanner.strings
+  DKScanner
+
+  Created by 庄槟豪 on 08/10/2017.
+  Copyright © 2017 cn.dankal. All rights reserved.
+*/
+
+"SCAN" = "扫一扫";
+"PUT_AND_SCAN" = "将二维码/条码放入框中，即可自动扫描";
+"CLOSE" = "关闭";
+"ALBUM" = "相册";
+"OK" = "确认";
+"CAN_NOT_ACCESS" = "无法访问相册";
+"CAN_NOT_DETECT" = "没有识别到二维码/条形码，请选择其他照片";
